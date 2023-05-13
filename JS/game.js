@@ -27,11 +27,14 @@ let secondCard = '';
 const checkEndGame = () => {
     const disabledCards = document.querySelectorAll('.disabled-card');
 
-    if (disabledCards.length == 20) {
+    if (disabledCards.length === 20) {
         clearInterval(this.loop);
-        alert(`Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi de: ${timer.innerHTML} segundos.`);
+        setTimeout(() => {
+            alert(`Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi de: ${timer.innerHTML}.`);
+        }, 1000);
     }
 }
+
 
 const checkCards = () => {
 
@@ -114,15 +117,26 @@ const loadGame = () => {
 
 
 const startTimer = () => {
+    let minutes = 0;
+    let seconds = 0;
 
-   this.loop = setInterval(() => {
+    this.loop = setInterval(() => {
+        seconds++;
 
-        const currentTime = +timer.innerHTML;
-        timer.innerHTML = currentTime + 1;
+        if (seconds === 60) {
+            seconds = 0;
+            minutes++;
+        }
 
+        const formattedMinutes = String(minutes).padStart(2, '0');
+        const formattedSeconds = String(seconds).padStart(2, '0');
+
+        timer.innerHTML = `${formattedMinutes}:${formattedSeconds}`;
     }, 1000);
+};
 
-}
+
+
 
 window.onload = () => {
 
