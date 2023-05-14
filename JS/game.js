@@ -38,28 +38,28 @@ const createElement = (tag, className) => {
 let firstCard = '';
 let secondCard = '';
 
-
 const checkEndGame = () => {
     const disabledCards = document.querySelectorAll('.disabled-card');
 
-    if (disabledCards.length === 20) {
-        clearInterval(this.loop);
-        setTimeout(() => {
-            const bodyElement = document.querySelector('body');
-            const messageElement = document.getElementById('message');
-            let reloadButton = document.getElementById('reloadButton');
-            reloadButton.style.display = 'block';
-            messageElement.textContent = `Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi de: ${timer.innerHTML}.`;
-            messageElement.style.display = 'block';
+    if (disabledCards.length == 20) {
+        clearInterval(loop);
 
+        const message = document.querySelector('.message');
+        const playerName = document.querySelector('.player-name');
+        const elapsedTime = document.querySelector('.elapsed-time');
+        const reloadImage = document.querySelector('.reload');
 
+        playerName.textContent = spanPlayer.innerHTML;
+        elapsedTime.textContent = timer.innerHTML;
 
+        message.style.display = 'block';
 
-
-            bodyElement.classList.add('blur');
-        }, 1000);
+        reloadImage.addEventListener('click', () => {
+            window.location.reload();
+        });
     }
-}
+};
+
 
 const checkCards = () => {
 
@@ -171,11 +171,13 @@ window.onload = () => {
     spanPlayer.innerHTML = localStorage.getItem('player');
     startTimer();
     loadGame();
+
+    const message = document.querySelector('.message');
+    message.style.display = 'none';
 }
 
 
-const reloadButton = document.getElementById('reloadButton');
-reloadButton.addEventListener('click', () => {
-    location.reload();
-});
+Object.values(audioClips).forEach((audio) => {
+    audio.preload = 'auto';
+})
 
