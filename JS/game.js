@@ -15,6 +15,20 @@ const characters = [
     'sergio',
 ];
 
+const audioClips = {
+    acertou: new Audio('../SONG/acertou.mp3'),
+    bill: new Audio('../SONG/bill.mp3'),
+    cafe: new Audio('../SONG/cafe.mp3'),
+    calca: new Audio('../SONG/calca.mp3'),
+    forninho: new Audio('../SONG/forninho.mp3'),
+    irineu: new Audio('../SONG/irineu.mp3'),
+    nossaAlegria: new Audio('../SONG/nossaAlegria.mp3'),
+    pao: new Audio('../SONG/pao.mp3'),
+    cepo: new Audio('../SONG/cepo.mp3'),
+    sergio: new Audio('../SONG/sergio.mp3'),
+};
+
+
 const createElement = (tag, className) => {
     const element = document.createElement(tag);
     element.className = className;
@@ -28,7 +42,7 @@ let secondCard = '';
 const checkEndGame = () => {
     const disabledCards = document.querySelectorAll('.disabled-card');
 
-    if (disabledCards.length === 2) {
+    if (disabledCards.length === 20) {
         clearInterval(this.loop);
         setTimeout(() => {
             const bodyElement = document.querySelector('body');
@@ -37,11 +51,11 @@ const checkEndGame = () => {
             reloadButton.style.display = 'block';
             messageElement.textContent = `Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi de: ${timer.innerHTML}.`;
             messageElement.style.display = 'block';
-            
-            
 
-            
-            
+
+
+
+
             bodyElement.classList.add('blur');
         }, 1000);
     }
@@ -58,6 +72,8 @@ const checkCards = () => {
         secondCard.firstChild.classList.add('disabled-card');
         firstCard = '';
         secondCard = '';
+        audioClips[firstCharacter].play();
+        audioClips[secondCharacter].play();
 
         checkEndGame();
 
@@ -68,6 +84,7 @@ const checkCards = () => {
 
             firstCard = '';
             secondCard = '';
+
 
         }, 500);
 
