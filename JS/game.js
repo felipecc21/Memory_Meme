@@ -24,17 +24,28 @@ const createElement = (tag, className) => {
 let firstCard = '';
 let secondCard = '';
 
+
 const checkEndGame = () => {
     const disabledCards = document.querySelectorAll('.disabled-card');
 
-    if (disabledCards.length === 20) {
+    if (disabledCards.length === 2) {
         clearInterval(this.loop);
         setTimeout(() => {
-            alert(`Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi de: ${timer.innerHTML}.`);
+            const bodyElement = document.querySelector('body');
+            const messageElement = document.getElementById('message');
+            let reloadButton = document.getElementById('reloadButton');
+            reloadButton.style.display = 'block';
+            messageElement.textContent = `Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi de: ${timer.innerHTML}.`;
+            messageElement.style.display = 'block';
+            
+            
+
+            
+            
+            bodyElement.classList.add('blur');
         }, 1000);
     }
 }
-
 
 const checkCards = () => {
 
@@ -145,4 +156,9 @@ window.onload = () => {
     loadGame();
 }
 
+
+const reloadButton = document.getElementById('reloadButton');
+reloadButton.addEventListener('click', () => {
+    location.reload();
+});
 
