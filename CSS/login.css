@@ -1,13 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
 
-  @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
-
-*{
+* {
     font-family: 'Kalam', cursive;
 }
 
 
 
-.login-form{
+.login-form {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -15,7 +14,7 @@
     justify-content: center;
 }
 
-.login_header{
+.login_header {
 
     align-items: center;
     display: flex;
@@ -24,19 +23,19 @@
     margin-bottom: 50px;
 }
 
-.login_header img{
+.login_header img {
     width: 250px;
 }
 
-.login_header h1{
+.login_header h1 {
     color: #333;
     font-size: 1.5em;
 }
 
-.login_input{
+.login_input {
     border: 2px solid #333;
     border-radius: 8px;
-    color:#333;
+    color: #333;
     font-size: 1em;
     margin-bottom: 15px;
     max-width: 300px;
@@ -48,18 +47,18 @@
 
 input::placeholder {
     text-align: center;
-  }
+}
 
 
-.login_button{
-background-color: #86452d;
-border-radius: 8px;
-color: #fff;
-cursor: pointer;
-font-size: 1em;
-max-width: 300px;
-padding: 15px;
-width: 100%;
+.login_button {
+    background-color: #86452d;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+    max-width: 300px;
+    padding: 15px;
+    width: 100%;
 
 }
 
@@ -71,11 +70,34 @@ width: 100%;
 }
 
 @keyframes swing {
-    0% { transform: rotate(0deg); }
-    50% { transform: rotate(5deg); }
-    100% { transform: rotate(-5deg); }
-  }
-  
-  img {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+
+    100% {
+        transform: rotate(-5deg);
+    }
+}
+
+img {
     animation: swing 2s ease-in-out infinite alternate;
-  }
+}
+
+.social-icons {
+    display: flex;
+    flex-direction: row;
+}
+
+.social-icon {
+    margin-right: 10px;
+}
+
+.social-icon img {
+    padding: 10px;
+    width: 80px;
+    height: 80px;
+}
