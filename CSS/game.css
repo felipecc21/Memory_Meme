@@ -1,3 +1,14 @@
+@font-face {
+    font-family: 'Kalam';
+    src: url('../FONT/Kalam-Regular.ttf') format('truetype');
+}
+
+* {
+    font-family: 'Kalam', cursive;
+}
+
+
+
 main {
     display: flex;
     flex-direction: column;
@@ -91,28 +102,33 @@ header {
     z-index: 9999;
     text-align: center;
     padding: 20px;
-    font-size: 3vw;
+    font-size: 5vw;
     align-items: center;
     justify-content: center;
     color: black;
 
 }
 
-.reload{
+.reload {
     padding: 20px;
-    width: 100px; 
-  height: 100px;
+    width: 100px;
+    height: 100px;
 }
 
 a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     bottom: 5px;
     right: 5px;
     margin: 5px;
     font-size: 25px;
-    color:rgba(0, 5, 11, 0.823);
+    color: rgba(0, 5, 11, 0.823);
     text-decoration: none;
+    
 }
+
 a:hover {
     color: #ccc;
     text-decoration: underline;
